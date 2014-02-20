@@ -1,0 +1,26 @@
+[scan]
+# The tag that mailman prepends to all messages.  This can be omitted
+# if the list isn't configured to do this.
+list_tag=Qemu-devel
+
+# The git repository to use to determine which patches are committed.
+# It must have remotes configured for all subtrees and must be kept up
+# to date independently of patches.  See hooks.scan.pre
+git_dir=/home/patches/qemu.git
+# The refspec that's considered the 'master' branch
+master_branch=master
+
+# The notmuch database that holds mail.  It must be kept up to date
+# independently of patches
+notmuch_dir=/home/patches/Maildir
+# The query used to identify mail.  This is meant to allow a single
+# notmuch database to be used for multiple lists.
+mail_query=to:qemu-devel@nongnu.org
+# The number of days to limit the analysis to.
+search_days=30
+
+# All subtrees need an entry in the [trees] section.  The key is the
+# refspec within the git repository for the subtree and the value is
+# a URI to be interpolated with the git commit hash for a web-view URL
+[trees]
+master=http://git.qemu.org/?p=qemu.git;a=commit;h=%s

@@ -1,0 +1,2 @@
+SHELL=/bin/sh
+*/15 * * * *       /home/patches/update-patches.sh

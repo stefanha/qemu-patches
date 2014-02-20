@@ -1,0 +1,8 @@
+This repository contains a Fabric script, or 'fabfile', that configures a
+machine to periodically refresh a 'patches' database from qemu.git and the
+qemu-devel mailing list.
+
+Written by Stefan Hajnoczi <stefanha@redhat.com>
+
+Fabric: http://fabfile.org/
+Patches: http://github.com/aliguori/patches

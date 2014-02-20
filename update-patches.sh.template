@@ -1,0 +1,18 @@
+#!/bin/bash
+set -e
+
+# Update our 'patches' source code
+(cd patches && git pull)
+
+# Grab the latest qemu.git commits
+GIT_DIR=/home/patches/qemu.git git fetch origin
+
+# Fetch qemu-devel mailing list emails into notmuch database
+curl -o mbox ftp://lists.gnu.org/qemu-devel/$(date +%%Y-%%m)
+mb2md -s mbox
+notmuch new
+
+patches/patches scan
+
+# Upload patches metadata to HTTP server
+rsync -ac .patches/public/* %(RSYNC_URI)s
