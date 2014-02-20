@@ -2,6 +2,13 @@ This repository contains a Fabric script, or 'fabfile', that configures a
 machine to periodically refresh a 'patches' database from qemu.git and the
 qemu-devel mailing list.
 
+If you just want to *use* the 'patches' tool for QEMU, you do not need this
+code.  Instead you should run:
+
+  $ git clone -b stefanha-tweaks git://github.com/stefanha/patches.git
+  $ cd patches
+  $ ./patches fetch http://vmsplice.net/~patches/patches.json
+
 Written by Stefan Hajnoczi <stefanha@redhat.com>
 
 Fabric: http://fabfile.org/
