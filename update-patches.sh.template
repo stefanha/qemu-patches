@@ -9,10 +9,12 @@ GIT_DIR=/home/patches/qemu.git git fetch origin
 
 # Fetch qemu-devel mailing list emails into notmuch database
 curl -o mbox ftp://lists.gnu.org/qemu-devel/$(date +%%Y-%%m)
+mkdir -p Maildir
 mb2md -s mbox
 notmuch new
 
 patches/patches scan
+rm -rf Maildir
 
 # Upload patches metadata to HTTP server
 rsync -ac .patches/public/* %(RSYNC_URI)s
