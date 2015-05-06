@@ -21,4 +21,7 @@ notmuch new
 patches/patches scan
 
 # Upload patches metadata to HTTP server
-rsync -ac .patches/public/* %(RSYNC_URI)s
+for uri in %(RSYNC_URI)s %(RSYNC_URI2)s
+do
+	rsync -ac .patches/public/* $uri
+done

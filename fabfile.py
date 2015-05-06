@@ -6,8 +6,9 @@ from fabric.utils import *
 from fabric.contrib.files import *
 
 QEMU_GIT_URI = 'git://git.qemu-project.org/qemu.git'
-PATCHES_GIT_URI = 'git://github.com/aliguori/patches.git'
-RSYNC_URI = 'your-server:path/to/patches/db'
+PATCHES_GIT_URI = 'git://github.com/stefanha/patches.git'
+RSYNC_URI = 'qemu-project.org:public'
+RSYNC_URI2 = 'yuzuki:public_html/patches'
 
 # Username of an account with sudo access
 env.user = 'fedora'
@@ -30,7 +31,8 @@ def bootstrap():
     sudo('chown patches:patches /home/patches/.patchesrc')
 
     upload_template('update-patches.sh.template', '/home/patches/update-patches.sh',
-                    use_sudo=True, mode=0755, context={'RSYNC_URI': RSYNC_URI})
+                    use_sudo=True, mode=0755, context={'RSYNC_URI': RSYNC_URI,
+                                                       'RSYNC_URI2': RSYNC_URI2})
     sudo('chown patches:patches /home/patches/update-patches.sh')
 
     with cd('/home/patches'):
