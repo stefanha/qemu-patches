@@ -17,8 +17,8 @@ __all__ = ['bootstrap', 'start', 'stop', 'test']
 
 def bootstrap():
     '''Set up the machine for refreshing a patches database'''
-    sudo('yum -y update')
-    sudo('yum -y install mb2md git notmuch python-notmuch rsync')
+    sudo('dnf -y update')
+    sudo('dnf -y install mb2md git notmuch python-notmuch rsync')
 
     sudo('grep -q ^patches: /etc/passwd || useradd --create-home --shell /sbin/nologin patches')
 
