@@ -9,5 +9,3 @@ code.  Instead you should run:
   $ ./patches fetch http://wiki.qemu-project.org/patches/patches.json
 
 Written by Stefan Hajnoczi <stefanha@redhat.com>
-
-Patches: http://github.com/aliguori/patches
