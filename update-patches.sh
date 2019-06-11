@@ -8,9 +8,9 @@ set -e
 GIT_DIR=/home/patches/qemu.git git fetch origin
 
 # Fetch qemu-devel mailing list emails into notmuch database
-curl --time-cond mbox-2 --remote-time -o mbox-2 ftp://lists.gnu.org/qemu-devel/$(date "--date=$(date +%Y-%m-15) -2 months" +%Y-%m)
-curl --time-cond mbox-1 --remote-time -o mbox-1 ftp://lists.gnu.org/qemu-devel/$(date "--date=$(date +%Y-%m-15) -1 month" +%Y-%m)
-curl --time-cond mbox-0 --remote-time -o mbox-0 ftp://lists.gnu.org/qemu-devel/$(date +%Y-%m)
+curl --time-cond mbox-2 --remote-time -o mbox-2 https://lists.gnu.org/archive/mbox/qemu-devel/$(date "--date=$(date +%Y-%m-15) -2 months" +%Y-%m)
+curl --time-cond mbox-1 --remote-time -o mbox-1 https://lists.gnu.org/archive/mbox/qemu-devel/$(date "--date=$(date +%Y-%m-15) -1 month" +%Y-%m)
+curl --time-cond mbox-0 --remote-time -o mbox-0 https://lists.gnu.org/archive/mbox/qemu-devel/$(date +%Y-%m)
 rm -rf Maildir
 mkdir -p Maildir
 mb2md -s mbox-2
