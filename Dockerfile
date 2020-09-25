@@ -12,7 +12,7 @@
 # 3. Run "docker build ."
 
 FROM fedora:32
-RUN dnf -y update && dnf -y install mb2md git notmuch python-notmuch rsync && dnf clean all
+RUN dnf -y update && dnf -y install cronie mb2md git notmuch python3-notmuch rsync && dnf clean all
 RUN useradd --create-home patches
 RUN install -d -o patches -g patches -m 0700 /home/patches/.ssh
 COPY id_rsa /home/patches/.ssh/id_rsa
