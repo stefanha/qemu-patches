@@ -16,6 +16,10 @@ mkdir -p Maildir
 mb2md -s mbox-2
 mb2md -s mbox-1
 mb2md -s mbox-0
+
+# Skip huge emails to limit notmuch memory consumption
+find Maildir -size +2M -exec rm {} \;
+
 notmuch new
 
 patches/patches scan
