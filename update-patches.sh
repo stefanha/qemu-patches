@@ -23,6 +23,3 @@ find Maildir -size +2M -exec rm {} \;
 notmuch new
 
 patches/patches scan
-
-# Upload patches metadata to HTTP server
-rsync -ac .patches/public/* qemu-project.org:public
