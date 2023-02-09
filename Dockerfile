@@ -11,7 +11,7 @@
 #   (where the '...' is the ssh public key)
 # 3. Run "docker build ."
 
-FROM fedora:32
+FROM fedora:37
 RUN dnf -y update && dnf -y install cronie findutils mb2md git notmuch python3-notmuch rsync && dnf clean all
 RUN useradd --create-home patches
 RUN install -d -o patches -g patches -m 0700 /home/patches/.ssh
