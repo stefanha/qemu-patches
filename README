@@ -6,6 +6,12 @@ code.  Instead you should run:
 
   $ git clone -b stefanha https://github.com/stefanha/patches.git
   $ cd patches
-  $ ./patches fetch http://wiki.qemu-project.org/patches/patches.json
+  $ ./patches fetch https://patches.qemu.org/patches.json
+
+To build and run this container image because you really want to build
+patches.json yourself:
+
+  $ podman build .
+  $ podman run -v path/to/db/dir:/home/patches/.patches/public:z
 
 Written by Stefan Hajnoczi <stefanha@redhat.com>
