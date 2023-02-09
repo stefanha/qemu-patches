@@ -17,5 +17,5 @@ RUN chown patches:patches /home/patches/update-patches.sh
 COPY conf/crontab /tmp/crontab
 RUN crontab -u patches /tmp/crontab && rm /tmp/crontab
 COPY run.sh /root/run.sh
-VOLUME ["/home/patches/public"]
+VOLUME ["/home/patches/.patches/public"]
 CMD ["/root/run.sh"]
