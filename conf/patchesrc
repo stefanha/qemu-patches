@@ -23,4 +23,4 @@ search_days=30
 # refspec within the git repository for the subtree and the value is
 # a URI to be interpolated with the git commit hash for a web-view URL
 [trees]
-master=http://git.qemu.org/?p=qemu.git;a=commit;h=%s
+master=https://gitlab.com/qemu-project/qemu/-/commit/%s
